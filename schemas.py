@@ -40,6 +40,6 @@ class OrderModel(BaseModel):
         schema_extra = {
             "example":{
                 "quantity" : 2,
-                "pizza_size":"LARGE" 
+                "pizza_size":"SMALL" 
             }
         }
