@@ -38,8 +38,19 @@ class OrderModel(BaseModel):
     class Config:
         orm_mode = True
         schema_extra = {
+                "example":{
+                    "quantity" : 2,
+                    "pizza_size":"SMALL" 
+                }
+        }
+
+class OrderStatusModel(BaseModel):
+    order_status : Optional[str] = 'PENDDING'
+    
+    class Config:
+        orm_mode = True
+        schema_extra = {
             "example":{
-                "quantity" : 2,
-                "pizza_size":"SMALL" 
+                "order_status" : "PENDING"
             }
         }
