@@ -68,9 +68,9 @@ async def login(user:LoginModel,Authorize:AuthJWT=Depends()):
         } 
 
         return jsonable_encoder(response)
- 
+
     raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,
-                        detail="Invalid Username or Password")
+                                                detail="Invalid Username or Password")
 
 # Refreshing Tokens
 
@@ -81,8 +81,8 @@ async def refresh_token(Authorized:AuthJWT=Depends()):
     except Exception as e:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,
                             detail="Please provide a valid refresh token")
-    
-    current_user =Authorized._get_jwt_subject()
+                            
+    current_user = Authorized.get_jwt_subject()
 
     access_token = Authorized.create_access_token(subject=current_user)
 
